@@ -8,11 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mi-Tech-Consulting/shared-components.git"
+    "url": "https://github.com/Mi-Tech-Consulting/shared-components.git"
   },
   "keywords": [
-    "shared",
-    "components"
+    "shared-components"
   ],
   "author": "Cullen Lee",
   "license": "UNLICENSED",
