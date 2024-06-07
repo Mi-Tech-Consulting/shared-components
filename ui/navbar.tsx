@@ -19,7 +19,7 @@ export default function Navbar() {
     return (
         <Nav>
             <NavbarBrand>
-                <Image src="/ad/favicon.ico" alt="Website Logo" className="h-8 w-auto p-1" width={10} height={10} />
+                <Image src="/favicon.ico" alt="Website Logo" className="h-8 w-auto p-1" width={10} height={10} />
                 <p className="font-bold text-inherit">Mitech</p>
             </NavbarBrand>
             <NavbarContent as="div" justify="end">
