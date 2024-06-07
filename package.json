@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "build": "next build",
+    "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +26,7 @@
     "@nextui-org/navbar": "^2.0.32",
     "@nextui-org/popover": "^2.1.23",
     "@nextui-org/react": "^2.4.1",
+    "@nextui-org/table": "^2.0.35",
     "@tremor/react": "^3.17.2",
     "framer-motion": "^11.2.10",
     "next": "^14.2.3",
@@ -43,12 +46,12 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
-    "eslint": "8.57.0",
-    "eslint-config-next": "^14.2.3",
-    "typescript": "^5.4.5",
-    "prettier": "^3.3.0",
     "@types/node": "^20.14.1",
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "eslint": "8.57.0",
+    "eslint-config-next": "^14.2.3",
+    "prettier": "^3.3.0",
+    "typescript": "^5.4.5"
   }
 }
