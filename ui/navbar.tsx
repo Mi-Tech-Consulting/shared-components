@@ -1,6 +1,6 @@
 'use client';
 
-import {Image} from "@nextui-org/image";
+import { Image } from "@nextui-org/image";
 
 import {
     Navbar as Nav,
@@ -19,7 +19,7 @@ export default function Navbar() {
     return (
         <Nav>
             <NavbarBrand>
-                <Image src="favicon.ico" alt="Website Logo" className="h-8 w-auto p-1"/>
+                <Image src="favicon.ico" alt="Website Logo" className="h-8 w-auto p-1" />
                 <p className="font-bold text-inherit">Mitech</p>
             </NavbarBrand>
             <NavbarContent as="div" justify="end">
@@ -38,20 +38,18 @@ export default function Navbar() {
                                     color="secondary"
                                     name="Jason Hughes"
                                     size="sm"
-                                    src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                                    src={user.image ?? "https://i.pravatar.cc/150?u=a042581f4e29026704d"}
                                 />
                             </Button>
                         </DropdownTrigger>
                         <DropdownMenu aria-label="Profile Actions" variant="flat">
                             <DropdownItem key="profile" className="h-14 gap-2">
                                 <p className="font-semibold">Signed in as</p>
+                                {user?.name && <p className="font-semibold">{user?.name}</p>}
                                 <p className="font-semibold">{user.email}</p>
                             </DropdownItem>
                             <DropdownItem key="settings">My Settings</DropdownItem>
                             <DropdownItem key="team_settings">Team Settings</DropdownItem>
-                            <DropdownItem key="analytics">Analytics</DropdownItem>
-                            <DropdownItem key="system">System</DropdownItem>
-                            <DropdownItem key="configurations">Configurations</DropdownItem>
                             <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
                             <DropdownItem key="logout" color="danger" onClick={() => signOut()}>
                                 Log Out
