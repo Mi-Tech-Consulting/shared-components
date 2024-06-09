@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import {Image} from "@nextui-org/image";
 
 import {
     Navbar as Nav,
@@ -19,7 +19,7 @@ export default function Navbar() {
     return (
         <Nav>
             <NavbarBrand>
-                <Image src="/favicon.ico" alt="Website Logo" className="h-8 w-auto p-1" width={10} height={10} />
+                <Image src="favicon.ico" alt="Website Logo" className="h-8 w-auto p-1"/>
                 <p className="font-bold text-inherit">Mitech</p>
             </NavbarBrand>
             <NavbarContent as="div" justify="end">
