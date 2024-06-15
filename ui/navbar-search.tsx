@@ -18,7 +18,7 @@ export const NavbarSearch = () => {
         }}
         placeholder="Type to search..."
         size="sm"
-        startContent={<MagnifyingGlassIcon className='h-[18px] w-[18px]' />}
+        startContent={<MagnifyingGlassIcon className='h-6 w-6' />}
         type="search"
     />);
 }

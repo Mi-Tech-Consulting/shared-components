@@ -24,7 +24,7 @@ export default function Navbar() {
                 <Image src="favicon.ico" alt="Website Logo" className="h-8 w-auto p-1" />
                 <p className="font-bold text-inherit">Mitech</p>
             </NavbarBrand>
-            <NavbarContent as="div" justify="end">
+            <NavbarContent as="div" className="items-center" justify="end">
                 <NavbarSearch />
                 {user &&
                     <Dropdown placement="bottom-end">
