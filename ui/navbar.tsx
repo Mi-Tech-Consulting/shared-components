@@ -23,8 +23,10 @@ export default function Navbar() {
             <NavbarContent justify="start">
 
                 <NavbarBrand>
-                    <Image src="favicon.ico" alt="Website Logo" className="h-8 p-1" />
-                    <p className="font-bold text-inherit">Mitech</p>
+                    <a href="/" className="flex items-center gap-2">
+                        <Image src="favicon.ico" alt="Website Logo" className="h-8 p-1" />
+                        <p className="font-bold text-inherit">Mitech</p>
+                    </a>
                 </NavbarBrand>
             </NavbarContent>
             {!user &&
