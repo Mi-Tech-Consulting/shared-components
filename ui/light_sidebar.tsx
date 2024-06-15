@@ -18,7 +18,7 @@ const navigation = [
   { name: 'Dashboard', href: '/dash', icon: HomeIcon, current: true },
   { name: 'Insight Analysis', href: '/insight', icon: UsersIcon, current: false },
   { name: 'Channels', href: '/user/channel', icon: FolderIcon, current: false },
-  { name: 'Campaigns', href: '#', icon: CalendarIcon, current: false },
+  { name: 'Campaigns', href: '/ad/campaigns', icon: CalendarIcon, current: false },
   { name: 'Payment', href: '/payment', icon: DocumentDuplicateIcon, current: false },
   { name: 'Help', href: '/help', icon: ChartPieIcon, current: false },
   { name: 'Setting', href: '/user/setting', icon: Cog6ToothIcon, current: false },
