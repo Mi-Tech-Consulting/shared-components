@@ -19,11 +19,33 @@ export default function Navbar() {
     const user = session?.user;
     const router = useRouter();
     return (
-        <Nav>
-            <NavbarBrand>
-                <Image src="favicon.ico" alt="Website Logo" className="h-8 w-auto p-1" />
-                <p className="font-bold text-inherit">Mitech</p>
-            </NavbarBrand>
+        <Nav >
+            <NavbarContent justify="start">
+
+                <NavbarBrand>
+                    <Image src="favicon.ico" alt="Website Logo" className="h-8 p-1" />
+                    <p className="font-bold text-inherit">Mitech</p>
+                </NavbarBrand>
+            </NavbarContent>
+            {!user &&
+                <NavbarContent className="hidden sm:flex gap-3 items-center">
+                    <NavbarItem>
+                        <Link color="foreground" href="/about">
+                            About
+                        </Link>
+                    </NavbarItem>
+                    <NavbarItem isActive>
+                        <Link href="/pricing" aria-current="page" color="secondary">
+                            Pricing
+                        </Link>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <Link color="foreground" href="/help">
+                            Help
+                        </Link>
+                    </NavbarItem>
+                </NavbarContent>
+            }
             <NavbarContent as="div" className="items-center" justify="end">
                 <NavbarSearch />
                 {user &&
