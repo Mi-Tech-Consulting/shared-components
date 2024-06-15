@@ -1,6 +1,5 @@
 "use client"
 import { ClassAttributes, Fragment, HTMLAttributes, JSX, useState } from 'react'
-import { Dialog, Transition, TransitionChild, DialogPanel } from '@headlessui/react'
 import {
   Bars3Icon,
   CalendarIcon,
@@ -9,7 +8,6 @@ import {
   FolderIcon,
   HomeIcon,
   UsersIcon,
-  XMarkIcon,
   Cog6ToothIcon
 } from '@heroicons/react/24/outline'
 import { Image } from "@nextui-org/image";
