@@ -9,7 +9,6 @@ import { Input } from "@nextui-org/react";
 
 
 export const NavbarSearch = () => {
-
     return (<Input
         classNames={{
             base: "max-w-full sm:max-w-[10rem] h-10",
