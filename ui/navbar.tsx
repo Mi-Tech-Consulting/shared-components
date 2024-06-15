@@ -10,12 +10,14 @@ import {
 } from "@nextui-org/navbar";
 import { Avatar, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link } from "@nextui-org/react";
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { NavbarSearch } from "./navbar-search";
+import { useRouter } from "next/navigation";
 
 
 export default function Navbar() {
     const { data: session } = useSession();
     const user = session?.user;
-
+    const router = useRouter();
     return (
         <Nav>
             <NavbarBrand>
@@ -23,6 +25,7 @@ export default function Navbar() {
                 <p className="font-bold text-inherit">Mitech</p>
             </NavbarBrand>
             <NavbarContent as="div" justify="end">
+                <NavbarSearch />
                 {user &&
                     <Dropdown placement="bottom-end">
                         <DropdownTrigger>
@@ -43,14 +46,14 @@ export default function Navbar() {
                             </Button>
                         </DropdownTrigger>
                         <DropdownMenu aria-label="Profile Actions" variant="flat">
-                            <DropdownItem key="profile" className="h-14 gap-2">
+                            <DropdownItem key="profile" className="h-14 gap-2" href="/user/profile">
                                 <p className="font-semibold">Signed in as</p>
                                 {user?.name && <p className="font-semibold">{user?.name}</p>}
                                 <p className="font-semibold">{user.email}</p>
                             </DropdownItem>
-                            <DropdownItem key="settings">My Settings</DropdownItem>
-                            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-                            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+                            <DropdownItem key="settings" href="/user/setting">My Settings</DropdownItem>
+                            <DropdownItem key="team_settings" href='/team/setting'>Team Settings</DropdownItem>
+                            <DropdownItem key="help_and_feedback" href='/help'>Help & Feedback</DropdownItem>
                             <DropdownItem key="logout" color="danger" onClick={() => signOut()}>
                                 Log Out
                             </DropdownItem>
@@ -64,6 +67,6 @@ export default function Navbar() {
                     </NavbarItem>
                 }
             </NavbarContent>
-        </Nav>
+        </Nav >
     )
 }
