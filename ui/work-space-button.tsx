@@ -34,44 +34,46 @@ const workspaces = [
 export function WorkSpaceButton(props: { isCompact: boolean, }) {
 
     return (props.isCompact ?
-        <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-                <div className="mx-auto h-full">
-                    <Icon
-                        className="text-default-500 cursor-pointer"
-                        icon="solar:users-group-rounded-linear"
-                        width={24}
-                    />
-                </div>
-            </DropdownTrigger>
-            <DropdownMenu
-                aria-label="Workspace Actions"
-                variant="faded"
-            >
-                {
-                    [...workspaces.map((workspace) =>
-                        <DropdownSection title={workspace.label} showDivider key={workspace.value}>
-                            {
-                                workspace.items.map((item) =>
-                                    <DropdownItem key={item.value} aria-label={item.label}>
-                                        {item.label}
-                                    </DropdownItem>)
-                            }
-                        </DropdownSection>
-                    ),
-                    <DropdownItem key={"Craete"} aria-label="Create workspace" onPress={() => console.log("on create workspace")}>
-                        <Button
-                            className="bg-default-100 text-center text-foreground w-full"
-                            size="sm"
-                            onPress={() => console.log("on create workspace")}
-                        >
-                            New Workspace
-                        </Button>
-                    </DropdownItem>
-                    ]
-                }
-            </DropdownMenu>
-        </Dropdown>
+        <div className="min-h-14">
+            <Dropdown placement="bottom-end">
+                <DropdownTrigger>
+                    <div className="relative h-10 w-10 flex-none rounded-full border-small border-default-300 items-center justify-center hover:bg-default-100 cursor-pointer">
+                        <Icon
+                            className="text-default-500 h-9 mx-auto"
+                            icon="solar:users-group-rounded-linear"
+                            width={24}
+                        />
+                    </div>
+                </DropdownTrigger>
+                <DropdownMenu
+                    aria-label="Workspace Actions"
+                    variant="faded"
+                >
+                    {
+                        [...workspaces.map((workspace) =>
+                            <DropdownSection title={workspace.label} showDivider key={workspace.value}>
+                                {
+                                    workspace.items.map((item) =>
+                                        <DropdownItem key={item.value} aria-label={item.label}>
+                                            {item.label}
+                                        </DropdownItem>)
+                                }
+                            </DropdownSection>
+                        ),
+                        <DropdownItem key={"Craete"} aria-label="Create workspace" onPress={() => console.log("on create workspace")}>
+                            <Button
+                                className="bg-default-100 text-center text-foreground w-full"
+                                size="sm"
+                                onPress={() => console.log("on create workspace")}
+                            >
+                                New Workspace
+                            </Button>
+                        </DropdownItem>
+                        ]
+                    }
+                </DropdownMenu>
+            </Dropdown>
+        </div>
         : <Select
             disableSelectorIconRotation
             aria-label="Select workspace"

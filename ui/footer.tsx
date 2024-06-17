@@ -1,5 +1,5 @@
 "use client";
-import { JSX, SVGProps } from "react"
+import { ClassAttributes, HTMLAttributes, JSX, SVGProps } from "react"
 
 
 /*
@@ -106,9 +106,9 @@ const footerNavigation = {
   ],
 }
 
-export function Footer() {
+export function Footer(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement>) {
   return (
-    <footer className="mt-24 sm:mt-56" aria-labelledby="footer-heading">
+    <footer className="mt-24 sm:mt-56" aria-labelledby="footer-heading" {...props}>
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>

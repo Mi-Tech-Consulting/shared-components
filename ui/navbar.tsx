@@ -8,24 +8,25 @@ import {
     NavbarContent,
     NavbarItem,
 } from "@nextui-org/navbar";
-import { Avatar, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link } from "@nextui-org/react";
+import { Avatar, Badge, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link, Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react";
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { NavbarSearch } from "./navbar-search";
-import { useRouter } from "next/navigation";
 import { ClassAttributes, HTMLAttributes } from "react";
+import { Icon } from "@iconify/react";
+import NotificationsCard from "./notifications-card";
 
 
 export default function Navbar({ children, ...props }: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>) {
     const { data: session } = useSession();
     const user = session?.user;
     return (
-        <Nav>
+        <Nav maxWidth="full">
             <NavbarContent justify="start">
                 <NavbarBrand>
-                    {/* <a href="/" className="flex items-center gap-2">
+                    <a href="/" className="flex items-center gap-2">
                         <Image src="favicon.ico" alt="Website Logo" className="h-8 p-1" />
                         <p className="font-bold text-inherit">Mitech</p>
-                    </a> */}
+                    </a>
                     {children}
                 </NavbarBrand>
             </NavbarContent>
@@ -50,6 +51,34 @@ export default function Navbar({ children, ...props }: JSX.IntrinsicAttributes &
             }
             <NavbarContent as="div" className="items-center" justify="end">
                 <NavbarSearch />
+                <Button
+                    disableRipple
+                    isIconOnly
+                    className="overflow-visible"
+                    radius="full"
+                    variant="light"
+                    href="/help"
+                >
+                    <Icon className="text-default-500" icon="solar:question-circle-linear" width={30} />
+                </Button>
+                <Popover offset={12} placement="bottom-start">
+                    <PopoverTrigger>
+                        <Button
+                            disableRipple
+                            isIconOnly
+                            className="overflow-visible"
+                            radius="full"
+                            variant="light"
+                        >
+                            <Badge color="danger" content="5" showOutline={false} size="md">
+                                <Icon className="text-default-500" icon="solar:bell-linear" width={30} />
+                            </Badge>
+                        </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="max-w-[90vw] p-0 sm:max-w-[380px]">
+                        <NotificationsCard className="w-full shadow-none" />
+                    </PopoverContent>
+                </Popover>
                 {user &&
                     <Dropdown placement="bottom-end">
                         <DropdownTrigger>
