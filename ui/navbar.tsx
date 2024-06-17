@@ -12,21 +12,21 @@ import { Avatar, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, 
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { NavbarSearch } from "./navbar-search";
 import { useRouter } from "next/navigation";
+import { ClassAttributes, HTMLAttributes } from "react";
 
 
-export default function Navbar() {
+export default function Navbar({ children, ...props }: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>) {
     const { data: session } = useSession();
     const user = session?.user;
-    const router = useRouter();
     return (
-        <Nav >
+        <Nav>
             <NavbarContent justify="start">
-
                 <NavbarBrand>
-                    <a href="/" className="flex items-center gap-2">
+                    {/* <a href="/" className="flex items-center gap-2">
                         <Image src="favicon.ico" alt="Website Logo" className="h-8 p-1" />
                         <p className="font-bold text-inherit">Mitech</p>
-                    </a>
+                    </a> */}
+                    {children}
                 </NavbarBrand>
             </NavbarContent>
             {!user &&

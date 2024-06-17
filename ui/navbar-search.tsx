@@ -3,12 +3,13 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 import { Input } from "@nextui-org/react";
+import { ClassAttributes, HTMLAttributes } from 'react';
 
 
 
 
 
-export const NavbarSearch = () => {
+export function NavbarSearch({ ...props }) {
     return (<Input
         classNames={{
             base: "max-w-full sm:max-w-[10rem] h-10",
@@ -20,5 +21,6 @@ export const NavbarSearch = () => {
         size="sm"
         startContent={<MagnifyingGlassIcon className='h-6 w-6' />}
         type="search"
+        {...props}
     />);
 }
