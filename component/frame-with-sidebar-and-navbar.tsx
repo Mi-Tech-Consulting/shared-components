@@ -1,6 +1,6 @@
 "use client";
 import { ClassAttributes, HTMLAttributes, useState } from 'react';
-import { Avatar, Badge, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Popover, PopoverContent, PopoverTrigger, ScrollShadow, Select, SelectItem, SelectSection, Spacer, Tooltip } from "@nextui-org/react";
+import { Avatar, Badge, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link, Popover, PopoverContent, PopoverTrigger, ScrollShadow, Select, SelectItem, SelectSection, Spacer, Tooltip } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import { cn } from "../lib/cn";
 import Sidebar from '../ui/sidebar';
@@ -8,7 +8,7 @@ import { sectionItemsWithTeams } from "../lib/sidebar-items";
 import { Image } from "@nextui-org/image";
 import { motion } from 'framer-motion';
 import { useMediaQuery } from "usehooks-ts";
-import { signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { NavbarSearch } from '../ui/navbar-search';
 import NotificationsCard from '../ui/notifications-card';
 import { WorkSpaceButton } from '../ui/work-space-button';
@@ -213,6 +213,11 @@ export default function Component(props: JSX.IntrinsicAttributes & ClassAttribut
                   Log Out
                 </DropdownItem>
               </DropdownMenu></Dropdown>
+          }
+          {!user &&
+            <Button as={Link} color="primary" onClick={() => signIn()} variant="flat">
+              Login/Sign Up
+            </Button>
           }
         </header>
         <main className="mt-4 h-full w-full overflow-visible">
