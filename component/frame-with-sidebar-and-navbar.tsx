@@ -77,10 +77,9 @@ export default function Component(props: JSX.IntrinsicAttributes & ClassAttribut
           </div>
         </div> */}
         <WorkSpaceButton isCompact={isCompact}></WorkSpaceButton>
-        <ScrollShadow className={cn("-mr-6 h-full max-h-full py-6 pr-6", { "px-2": isCompact })}>
+        <ScrollShadow className={cn("-mr-6 h-full max-h-full py-4 pr-6", { "px-1": isCompact })}>
           <Sidebar defaultSelectedKey="home" isCompact={isCompact} items={sectionItemsWithTeams} />
         </ScrollShadow>
-        <Spacer y={2} />
         <div
           className={cn("mt-auto flex flex-col", {
             "items-center": isCompact,

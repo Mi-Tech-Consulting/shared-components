@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Button, Select, SelectItem, SelectSection, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, DropdownSection } from "@nextui-org/react";
+import { Button, Select, SelectItem, SelectSection, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, DropdownSection, Link } from "@nextui-org/react";
 
 
 
@@ -33,49 +33,45 @@ const workspaces = [
 
 export function WorkSpaceButton(props: { isCompact: boolean, }) {
 
-    return (props.isCompact ? <Dropdown placement="bottom-end" >
-        <DropdownTrigger>
-            <Button
-                disableRipple
-                className="bg-transparent data-[hover=true]:bg-transparent justify-start"
-                variant="light"
-                aria-label='Select workspace'
+    return (props.isCompact ?
+        <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+                <div className="mx-auto h-full">
+                    <Icon
+                        className="text-default-500 cursor-pointer"
+                        icon="solar:users-group-rounded-linear"
+                        width={24}
+                    />
+                </div>
+            </DropdownTrigger>
+            <DropdownMenu
+                aria-label="Workspace Actions"
+                variant="faded"
             >
-                <Icon
-                    className="text-default-500"
-                    icon="solar:users-group-rounded-linear"
-                    width={24}
-                />
-            </Button>
-        </DropdownTrigger>
-        <DropdownMenu
-            aria-label="Workspace Actions"
-            variant="faded"
-        >
-            {
-                [...workspaces.map((workspace) =>
-                    <DropdownSection title={workspace.label} showDivider key={workspace.value}>
-                        {
-                            workspace.items.map((item) =>
-                                <DropdownItem key={item.value} aria-label={item.label}>
-                                    {item.label}
-                                </DropdownItem>)
-                        }
-                    </DropdownSection>
-                ),
-                <DropdownItem key={"Craete"} aria-label="Create workspace" onPress={() => console.log("on create workspace")}>
-                    <Button
-                        className="bg-default-100 text-center text-foreground w-full"
-                        size="sm"
-                        onPress={() => console.log("on create workspace")}
-                    >
-                        New Workspace
-                    </Button>
-                </DropdownItem>
-                ]
-            }
-        </DropdownMenu>
-    </Dropdown>
+                {
+                    [...workspaces.map((workspace) =>
+                        <DropdownSection title={workspace.label} showDivider key={workspace.value}>
+                            {
+                                workspace.items.map((item) =>
+                                    <DropdownItem key={item.value} aria-label={item.label}>
+                                        {item.label}
+                                    </DropdownItem>)
+                            }
+                        </DropdownSection>
+                    ),
+                    <DropdownItem key={"Craete"} aria-label="Create workspace" onPress={() => console.log("on create workspace")}>
+                        <Button
+                            className="bg-default-100 text-center text-foreground w-full"
+                            size="sm"
+                            onPress={() => console.log("on create workspace")}
+                        >
+                            New Workspace
+                        </Button>
+                    </DropdownItem>
+                    ]
+                }
+            </DropdownMenu>
+        </Dropdown>
         : <Select
             disableSelectorIconRotation
             aria-label="Select workspace"
