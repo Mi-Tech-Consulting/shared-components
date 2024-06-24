@@ -30,6 +30,27 @@ export const items: SidebarItem[] = [
     href: "/ad/campaigns",
     icon: "solar:users-group-two-rounded-outline",
     title: "Campaigns",
+    type: SidebarItemType.Nest,
+    items: [
+      {
+        key: "search-campaigns",
+        href: "/ad/search-campaigns",
+        icon: "solar:users-group-two-rounded-outline",
+        title: "Search Campaigns"
+      },
+      {
+        key: "display-campaigns",
+        href: "/ad/display-campaigns",
+        icon: "solar:users-group-two-rounded-outline",
+        title: "Display Campaigns"
+      },
+      {
+        key: "video-campaigns",
+        href: "/ad/video-campaigns",
+        icon: "solar:users-group-two-rounded-outline",
+        title: "Video Campaigns"
+      },
+    ]
   },
   {
     key: "payment",
@@ -99,6 +120,27 @@ export const sectionItems: SidebarItem[] = [
         href: "/ad/campaigns",
         icon: "solar:users-group-two-rounded-outline",
         title: "Campaigns",
+        type: SidebarItemType.Nest,
+        items: [
+          {
+            key: "search-campaigns",
+            href: "/ad/search-campaigns",
+            icon: "solar:users-group-two-rounded-outline",
+            title: "Search Campaigns"
+          },
+          {
+            key: "display-campaigns",
+            href: "/ad/display-campaigns",
+            icon: "solar:users-group-two-rounded-outline",
+            title: "Display Campaigns"
+          },
+          {
+            key: "video-campaigns",
+            href: "/ad/video-campaigns",
+            icon: "solar:users-group-two-rounded-outline",
+            title: "Video Campaigns"
+          },
+        ]
       }
     ],
   },

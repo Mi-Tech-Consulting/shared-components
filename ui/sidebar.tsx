@@ -8,10 +8,10 @@ import {
   type Selection,
 } from "@nextui-org/react";
 import React from "react";
-import {Listbox, Tooltip, ListboxItem, ListboxSection} from "@nextui-org/react";
-import {Icon} from "@iconify/react";
+import { Listbox, Tooltip, ListboxItem, ListboxSection } from "@nextui-org/react";
+import { Icon } from "@iconify/react";
 
-import {cn} from "../lib/cn";
+import { cn } from "../lib/cn";
 
 export enum SidebarItemType {
   Nest = "nest",
@@ -139,7 +139,7 @@ const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
               </Tooltip>
             ) : null}
             {!isCompact && isNestType ? (
-              <Accordion className={"p-0"}>
+              <Accordion className={"p-0"} defaultExpandedKeys={["campaigns"]}>
                 <AccordionItem
                   key={item.key}
                   aria-label={item.title}
