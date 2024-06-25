@@ -91,8 +91,8 @@ const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
 
         return (
           <ListboxItem
-            {...item}
             key={item.key}
+            textValue={item.title}
             classNames={{
               base: cn(
                 {
