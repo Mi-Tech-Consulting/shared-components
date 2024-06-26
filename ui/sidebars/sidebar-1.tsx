@@ -11,7 +11,7 @@ import React from "react";
 import { Listbox, Tooltip, ListboxItem, ListboxSection } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 
-import { cn } from "../lib/cn";
+import { cn } from "../../lib/cn";
 
 export enum SidebarItemType {
   Nest = "nest",

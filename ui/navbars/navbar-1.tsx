@@ -10,10 +10,10 @@ import {
 } from "@nextui-org/navbar";
 import { Avatar, Badge, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link, Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react";
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { NavbarSearch } from "./navbar-search";
+import { NavbarSearch } from "../navbar-search";
 import { ClassAttributes, HTMLAttributes } from "react";
 import { Icon } from "@iconify/react";
-import NotificationsCard from "./notifications-card";
+import NotificationsCard from "../notifications-card";
 
 
 export default function Navbar({ children, ...props }: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>) {

@@ -3,7 +3,7 @@ import { ClassAttributes, HTMLAttributes, useState } from 'react';
 import { Avatar, Badge, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link, Popover, PopoverContent, PopoverTrigger, ScrollShadow, Select, SelectItem, SelectSection, Spacer, Tooltip } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import { cn } from "../lib/cn";
-import Sidebar from '../ui/sidebar';
+import Sidebar from '../ui/sidebars/sidebar-1';
 import { sectionItemsWithTeams } from "../lib/sidebar-items";
 import { Image } from "@nextui-org/image";
 import { motion } from 'framer-motion';
