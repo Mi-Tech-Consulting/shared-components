@@ -75,7 +75,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, icon: Icon, label, submenu }) =
 
     const pathname = usePathname();
     const isActive = pathname === href;
-    const isSubMenuActive = submenu && submenu.some(subLink => pathname.includes(subLink.href));
+    const isSubMenuActive = submenu && submenu.some(subLink => pathname?.includes(subLink.href));
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleSubMenu = () => {
