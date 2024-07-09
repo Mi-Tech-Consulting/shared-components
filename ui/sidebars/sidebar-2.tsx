@@ -15,8 +15,6 @@ import { useState } from "react";
 import Link from 'next/link';
 
 
-
-
 interface SubNavLinkData {
     href: string;
     label: string;
@@ -44,25 +42,25 @@ const navLinks: NavLinkData[] = [
         ],
     },
     {
-        href: '#', icon: FileIcon, label: 'Campagins', submenu: [
-            { href: '#', label: 'Campaigns' },
-            { href: '#', label: 'Ad Gap' },
-            { href: '#', label: 'Ads' }
+        href: '/campaigns', icon: FileIcon, label: 'Campagins', submenu: [
+            { href: '/campaigns', label: 'Campaigns' },
+            { href: '#', label: 'Ad Group' },
+            { href: '/manage', label: 'Ads' }
         ],
     },
     { href: '#', icon: FileIcon, label: 'Analytics' },
     {
-        href: '#',
+        href: '/reports',
         icon: CreditCardIcon,
         label: 'Reports',
         submenu: [
             { href: '#', label: 'Export' },
-            { href: '#', label: 'Import' },
-            { href: '#', label: 'Schedule Automation' }
+            { href: '/reports/import', label: 'Import' },
+            { href: '/reports', label: 'Schedule Automation' }
         ],
     },
     { href: '#', icon: DollarSignIcon, label: 'Insights' },
-    { href: '#', icon: FolderIcon, label: 'E-commerce' },
+    { href: '/ecommerce', icon: FolderIcon, label: 'E-Commerce' },
 ];
 
 interface NavLinkProps {
@@ -74,41 +72,51 @@ interface NavLinkProps {
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, icon: Icon, label, submenu }) => {
+
     const pathname = usePathname();
     const isActive = pathname === href;
+    const isSubMenuActive = submenu && submenu.some(subLink => pathname.includes(subLink.href));
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleSubMenu = () => {
         setIsOpen(!isOpen);
     };
 
+
     return (
-
-
-        <div>
-            <div
-                className={`block py-2 px-4 cursor-pointer ${isActive ? 'bg-white text-[#ff7f00] rounded-md' : ''}`}
-                onClick={toggleSubMenu}
-            >
-                <div className="flex items-center">
-                    <Icon className="inline-block w-5 h-5 mr-2" />
-                    <span>{label}</span>
-                    {submenu && isOpen && <ChevronUpIcon className="ml-auto w-12 h-12" />}
-                    {submenu && !isOpen && <ChevronDownIcon className="ml-auto w-12 h-12" />}
+        <>
+            <div>
+                <div>
+                    <div
+                        className={`block py-2 px-4 cursor-pointer ${isActive || isSubMenuActive ? 'bg-white text-[#ff7f00] rounded-md' : ''}`}
+                        onClick={toggleSubMenu}
+                    >
+                        <Link href={!submenu ? href : ""} prefetch={false} className={`block py-0 px-4 cursor-pointer ${isActive || isSubMenuActive ? 'bg-white text-[#ff7f00] rounded-md py-0' : ''}`}>
+                            <div className="flex items-center">
+                                <Icon className="inline-block w-5 h-5 mr-2" />
+                                <span>{label}</span>
+                                {submenu && isOpen && <ChevronUpIcon className="ml-auto w-12 h-12" />}
+                                {submenu && !isOpen && <ChevronDownIcon className="ml-auto w-12 h-12" />}
+                            </div>
+                        </Link>
+                    </div>
                 </div>
+                {isOpen && submenu && (
+                    <ul className="pl-4">
+                        {submenu.map((submenuItem, index) => (
+                            <li key={index}>
+                                <Link href={submenuItem.href} prefetch={false} className={`block py-2 px-4`}>
+                                    {submenuItem.label}
+                                </Link>
+                            </li>
+                        ))}
+
+                    </ul>
+                )}
             </div>
-            {isOpen && submenu && (
-                <ul className="pl-4">
-                    {submenu.map((submenuItem, index) => (
-                        <li key={index}>
-                            <Link href={submenuItem.href} prefetch={false} className="block py-2 px-4">
-                                {submenuItem.label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
+
+        </>
+
     );
 };
 
@@ -134,16 +142,16 @@ export default function Sidebar() {
         </nav>
         <div className="h-px bg-gray-200 mb-4 mt-4" />
         <div className="mt-auto">
-            <Link href="#" className="block py-2 px-4" prefetch={false}>
+            <Link href="/team-members" className="block py-2 px-4" prefetch={false}>
                 Team Members
             </Link>
-            <Link href="#" className="block py-2 px-4" prefetch={false}>
+            <Link href="/payment" className="block py-2 px-4" prefetch={false}>
                 Billing
             </Link>
-            <Link href="#" className="block py-2 px-4" prefetch={false}>
+            <Link href="/connect" className="block py-2 px-4" prefetch={false}>
                 Integrations
             </Link>
-            <Link href="#" className="block py-2 px-4" prefetch={false}>
+            <Link href="/settings" className="block py-2 px-4" prefetch={false}>
                 Settings
             </Link>
         </div>
